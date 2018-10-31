@@ -1,18 +1,17 @@
 #!/usr/bin/env python
 
 import numpy as np
-import os
 
 class QLearning:
     def __init__(self):
         self.n_iter = 1000 # number of episodes(iterations)
         self.gamma = 0.8
-        self.env_mat = np.array([[-1, -1, -1, -1, 0, -1], \
-                               [-1, -1, -1, 0, -1, 100], \
-                               [-1, -1, -1, 0, -1, -1],
-                               [-1, 0, 0, -1, 0, -1],
-                               [0, -1, -1, 0, -1, 100],
-                               [-1, 0, -1, -1, 0, 100]])
+        self.env_mat = np.array([[-1, -1, -1, -1, 0, -1], 
+                                 [-1, -1, -1, 0, -1, 100], 
+                                 [-1, -1, -1, 0, -1, -1],
+                                 [-1, 0, 0, -1, 0, -1],
+                                 [0, -1, -1, 0, -1, 100],
+                                 [-1, 0, -1, -1, 0, 100]])
         self.q_mat = np.zeros((6, 6))
         self.learn()
 
@@ -20,7 +19,7 @@ class QLearning:
         print 'learning...'
         for episode in range(self.n_iter):
             cur_s = self.select_state() 
-            print 'in episode {}, init state {}'.format(episode, cur_s)
+            #print 'in episode {}, init state {}'.format(episode, cur_s)
             while True:
                 cur_a = self.select_action(cur_s)
                 #print 'int state is {}, selected action is {}'.format(cur_s, cur_a)
